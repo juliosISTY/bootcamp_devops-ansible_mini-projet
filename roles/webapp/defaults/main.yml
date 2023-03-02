@@ -1,0 +1,5 @@
+---
+# defaults variables
+system_user: admin
+apache_port: 80
+expose_port: 80

@@ -1,0 +1,23 @@
+---
+- name: Add Docker CE repo
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+
+- name: Install Docker
+  yum:
+    name: docker
+    state: latest
+  when: ansible_distribution == "CentOS"
+
+- name: Start and enable the Docker daemon
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Add remote user to docker group
+  user:
+    name: "{{ system_user }}"
+    groups: dockerroot
+    append: yes
