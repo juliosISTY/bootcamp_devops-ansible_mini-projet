@@ -1,5 +1,5 @@
 ---
-- include_vars: "install_python-library_for_docker.yml"
+- include_tasks: "install_python-library_for_docker.yml"
 - name: Copy websites file template
   template:
     src: index.html.j2

@@ -1,5 +1,5 @@
 ---
-- name: Install EPEL repo and wget
+- name: Install EPEL repo
   yum:
     name:
       - epel-release
